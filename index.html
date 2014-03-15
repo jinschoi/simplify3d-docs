@@ -46,7 +46,7 @@
 <h2>
 <a name="the-interface" class="anchor" href="#the-interface"><span class="octicon octicon-link"></span></a>The Interface</h2>
 
-<p><img src="interface.jpg" alt="main window"></p>
+<p><img src="screenshots/interface.jpg" alt="main window"></p>
 
 <h3>
 <a name="models-section" class="anchor" href="#models-section"><span class="octicon octicon-link"></span></a>Models Section</h3>
@@ -72,7 +72,7 @@
 <li>Cmd-right-drag up and down on a model to scale it.</li>
 </ul><p>Double clicking on a model will bring up an options screen to let you do all of the above transformations more precisely using numbers.</p>
 
-<p><img src="gcode-preview.jpg" alt="g-code preview" title="G-Code Preview"></p>
+<p><img src="screenshots/gcode-preview.jpg" alt="g-code preview"></p>
 
 <p>When previewing a g-code file (described in the next section), the preview area displays a representation of the actual instructions that will be sent to the printer. You can virtually play back how the print will progress using the controls that appear underneath.</p>
 
@@ -105,7 +105,7 @@
 <h3>
 <a name="machine-control-panel" class="anchor" href="#machine-control-panel"><span class="octicon octicon-link"></span></a>Machine Control Panel</h3>
 
-<p><img src="machine-control-panel.jpg" alt="machine control panel"></p>
+<p><img src="screenshots/machine-control-panel.jpg" alt="machine control panel"></p>
 
 <h4>
 <a name="initialization-section" class="anchor" href="#initialization-section"><span class="octicon octicon-link"></span></a>Initialization Section</h4>
@@ -162,7 +162,7 @@
 <h3>
 <a name="add-supports" class="anchor" href="#add-supports"><span class="octicon octicon-link"></span></a>Add supports</h3>
 
-<p><img src="support-generation.jpg" alt="support generation"></p>
+<p><img src="screenshots/support-generation.jpg" alt="support generation"></p>
 
 <p>Simplify3D's manual support generation is one of its standout features. If you wish to manually define supports, this is the time to do it. Here, I've turned one of the models on its side as an example.</p>
 
@@ -188,7 +188,7 @@
 <h4>
 <a name="common-settings" class="anchor" href="#common-settings"><span class="octicon octicon-link"></span></a>Common Settings</h4>
 
-<p><img src="fff-settings.jpg" alt="fff settings"></p>
+<p><img src="screenshots/fff-settings.jpg" alt="fff settings"></p>
 
 <p>The most commonly adjusted settings are available at the top of the FFF Settings dialog, which appears after you add a process. This portion remains visible whenever this dialog is up. If Simplify3D comes with a profile for your printer, you can begin by selecting your printer's preset profile, selecting your material, opting for Medium or High Quality and be off. You can also select your infill percentage and turn raft and support on and off from this area. These terms will be described in detail below.</p>
 
@@ -204,7 +204,7 @@
 <h4>
 <a name="extruder-tab" class="anchor" href="#extruder-tab"><span class="octicon octicon-link"></span></a>Extruder Tab</h4>
 
-<p><img src="extruder-tab.jpg" alt="extruder settings"></p>
+<p><img src="screenshots/extruder-tab.jpg" alt="extruder settings"></p>
 
 <p>Under the Extruder tab, we find extrusion related options. Most printers will only have one Primary Extruder.</p>
 
@@ -230,7 +230,7 @@
 <h4>
 <a name="layer-tab" class="anchor" href="#layer-tab"><span class="octicon octicon-link"></span></a>Layer Tab</h4>
 
-<p><img src="layer-tab.jpg" alt="layer settings"></p>
+<p><img src="screenshots/layer-tab.jpg" alt="layer settings"></p>
 
 <h5>
 <a name="layer-settings" class="anchor" href="#layer-settings"><span class="octicon octicon-link"></span></a>Layer Settings</h5>
@@ -274,7 +274,7 @@
 <h4>
 <a name="infill-tab" class="anchor" href="#infill-tab"><span class="octicon octicon-link"></span></a>Infill Tab</h4>
 
-<p><img src="infill-tab.jpg" alt="infill tab"></p>
+<p><img src="screenshots/infill-tab.jpg" alt="infill tab"></p>
 
 <p>This is where you select options for the infill density and pattern. You can also choose which extruder to use for infill if you have a printer with multiple extruders. The most important option here is the infill percentage, which is linked to the slider in the General Settings portion of the window. 15% is a good lower limit for fast prints and light objects; 35% for general purpose use, and 50% and above for solid objects that need strength.</p>
 
@@ -283,7 +283,7 @@
 <h4>
 <a name="support-tab" class="anchor" href="#support-tab"><span class="octicon octicon-link"></span></a>Support Tab</h4>
 
-<p><img src="support-tab.jpg" alt="support tab"></p>
+<p><img src="screenshots/support-tab.jpg" alt="support tab"></p>
 
 <p>As infill could be considered internal support, many of the same options as infill can be found here. You can choose a separate extruder to use to print support with, perhaps loaded with a dissolvable material.</p>
 
@@ -294,7 +294,7 @@
 <h4>
 <a name="temperature-tab" class="anchor" href="#temperature-tab"><span class="octicon octicon-link"></span></a>Temperature Tab</h4>
 
-<p><img src="temperature-tab.jpg" alt="temperature tab"></p>
+<p><img src="screenshots/temperature-tab.jpg" alt="temperature tab"></p>
 
 <p>This is where you set the temperatures for your nozzle and heated bed (if present). Use the **Add/Remove Temperature Controller* to configure any temperature controllers you may have on your printer. Add a set point for each layer you wish to change the temperature at. Usually this is either one setpoint at layer 1, or two setpoints, one for the first layer and another cooler temperature for layers 2 and above. Make sure you specify different layers for each setpoint.</p>
 
@@ -303,7 +303,7 @@
 <h4>
 <a name="cooling-tab" class="anchor" href="#cooling-tab"><span class="octicon octicon-link"></span></a>Cooling Tab</h4>
 
-<p><img src="cooling-tab.jpg" alt="cooling tab"></p>
+<p><img src="screenshots/cooling-tab.jpg" alt="cooling tab"></p>
 
 <p>Here you can control your fan speeds and cooling slowdowns on a layer by layer basis. PLA benefits from having a fan to cool down the plastic as it exits the extruder, otherwise it is prone to major curling on overhangs and sharp corners. However, you do not want cool the first layer as you want it to adhere well to the bed. ABS is much less prone to overhang and edge curling, but shrinks more than PLA and can pull so strongly as it cools that it pulls corners up off the bed, or even delaminate previously laid layers; a fan should not be used with ABS.</p>
 

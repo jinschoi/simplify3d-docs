@@ -267,7 +267,7 @@ Supports can be tall, fragile towers, so it is sometimes helpful to reduce their
 
 **X/Y Axis Movement Speed** and **Z Axis Movement Speed** lets you set the travel speeds for different axes. Travel occurs when the extruder is moved from one location to another without extruding, and can happen at high speeds.
 
-The **Bridging extrusion and speed multipliers** make modifications to extrusion and speed during bridges. You may have to experiment with these to find a combination that works well for your printer. I have found a combination of slower speeds and slower extrusion aids with bridging, but your mileage may vary.
+The **Bridging extrusion and speed multipliers** make modifications to extrusion and speed during bridges. You may have to experiment with these to find a combination that works well for your printer. I have found a combination of slower speeds and slower extrusion aids with bridging, but your mileage may vary. There also appears to be a bug, where perimeters that are also part of a bridge are printed using the perimeter settings rather than the bridging settings.
 
 The **Filament diameter** should be set to the diameter of the filament you are using, generally 1.75mm or 3mm. If you have calipers, measure the actual diameter of your filament at several points and adjust this number to be more precise.
 

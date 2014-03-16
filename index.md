@@ -221,7 +221,7 @@ Two other important options on this tab are the **Print Sparse Infill Every n la
 
 ![support tab](screenshots/support-tab.jpg)
 
-As infill could be considered internal support, many of the same options as infill can be found here. You can choose a separate extruder to use to print support with, perhaps loaded with a dissolvable material.
+As infill could be considered internal support, support structures could be considered as "external infill" intended to be removed. Many of the same options as infill can be found here. You can choose a separate extruder to use to print support with, perhaps loaded with a dissolvable material.
 
 Simplify3D makes its support easy to remove from your part by never actually connecting it to your model, making any attachment weak and easy to break off. The **Separation From Part** settings adjusts this separation, making it either stronger by placing the support closer, or weaker still by moving it away.
 
@@ -231,7 +231,7 @@ The **Automatic Placement** settings are used if you have not [defined manual su
 
 ![temperature tab](screenshots/temperature-tab.jpg)
 
-This is where you set the temperatures for your nozzle and heated bed (if present). Use the **Add/Remove Temperature Controller* to configure any temperature controllers you may have on your printer. Add a set point for each layer you wish to change the temperature at. Usually this is either one setpoint at layer 1, or two setpoints, one for the first layer and another cooler temperature for layers 2 and above. Make sure you specify different layers for each setpoint.
+This is where you set the temperatures for your nozzle and heated bed (if present). Use the **Add/Remove Temperature Controller** to configure any temperature controllers you may have on your printer. Add a set point for each layer you wish to change the temperature at. Usually this is either one setpoint at layer 1, or two setpoints, one for the first layer and another cooler temperature for layers 2 and above. Make sure you specify different layers for each setpoint.
 
 I refer you again to [Triffid's configuration guide][2] for more details on how to select temperatures.
 
@@ -239,11 +239,11 @@ I refer you again to [Triffid's configuration guide][2] for more details on how 
 
 ![cooling tab](screenshots/cooling-tab.jpg)
 
-Here you can control your fan speeds and cooling slowdowns on a layer by layer basis. PLA benefits from having a fan to cool down the plastic as it exits the extruder, otherwise it is prone to major curling on overhangs and sharp corners. However, you do not want cool the first layer as you want it to adhere well to the bed. ABS is much less prone to overhang and edge curling, but shrinks more than PLA and can pull so strongly as it cools that it pulls corners up off the bed, or even delaminate previously laid layers; a fan should not be used with ABS.
+Here you can control your fan speeds and cooling slowdowns on a layer by layer basis. PLA benefits from having a fan to cool down the plastic as it exits the extruder, otherwise it is prone to major curling on overhangs and sharp corners. However, you do not want cool the first layer as you want it to adhere well to the bed. ABS is much less prone to overhang and edge curling, but shrinks more than PLA and can pull so strongly as it cools that it can pull corners up off the bed, or even delaminate previously laid layers; a fan should not be used with ABS.
 
 Small objects and layers with little to print in them can be finished so quickly that there is no time for it to solidify before it is time to print the next layer. The **Speed Overrides** section allows you to set minimum layer times so that each layer has sufficient time. Slowing down too much is also bad because the hot extruder lingers too long in the same area, so the speed reductions can be limited to a percentage of the [nominal print speed](#other-tab).
 
-A fan can also aid in "bridging", or laying filament across a gap supported only by the ends.
+A fan can also aid in "bridging", or laying filament across a gap supported only by the ends by cooling the bridge as it is laid so that it does not sag.
 
 The **blip fan** setting brings a fan to 100% before bringing it down to the requested speed. It takes more power to start an idle fan than to keep it running, so a fan commanded to run at 50% from idle may not even spin. This ensures that it spins no matter what power was requested. Note that fan speeds are not linear in the power provided, and yours may stall at well above 0%.
 
@@ -275,7 +275,9 @@ Under **ooze control behavior** are a set of options that interact with your ret
 
 ### Prepare Your Gcode and Print
 
-Once you have one or more profiles assigned to your models, click the Prepare button to generate your gcode. Then open up the [Machine Control Panel](#mcp) and enter the G-Code Library tab. Select the topmost item in your library, and Run Selected G-Code.
+Once you have one or more profiles assigned to your models, click the Prepare button to generate your gcode. If you have added more than one process, a dialog will appear asking you which processes you wish to apply. Usually you will Select All. There is also a choice of **Printing Mode**. _Continuous printing_ will print all the processes layer by layer, as if it were one large object with disconnected components. _Sequential printing_ will work on one process until the _Max height clearance_ you specify is reached, then move to the next object and print that to the same height, and so on.
+
+Open up the [Machine Control Panel](#machine-control-panel) and enter the G-Code Library tab. Select the topmost item in your library, and Run Selected G-Code.
 
 [1]:http://reprap.org/wiki/Triffid_Hunter%27s_Calibration_Guide#Slicer_settings
 [2]:http://reprap.org/wiki/Triffid_Hunter%27s_Calibration_Guide#Nozzle_Temperature

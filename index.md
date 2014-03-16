@@ -30,7 +30,7 @@ The preview area in the center displays your models as they will be printed. The
 * Click on a model to select it.
 * Alt-left-drag left and right on a model to rotate it.
 * Cmd-left-drag (Ctrl-left-drag on a PC) on a model to move it around the bed. The camera will shift temporarily to an overhead viewpoint while you move it around.
-* Cmd-right-drag (Ctrl-left-drag on a PC) up and down on a model to scale it.
+* Cmd-right-drag (Ctrl-right-drag on a PC) up and down on a model to scale it.
 
 Double clicking on a model will bring up an options screen to let you do all of the above transformations more precisely using numbers.
 
@@ -97,7 +97,7 @@ This lets you manually select a tool head (for dual extruder printers), set the 
 
 **SD Card Status**: tells you if your SD card is readable or not. There may be a malfunction, an SD card may not be inserted into the reader, or your printer may not have an SD card reader. If you are running a print from the SD card and Simplify3D is connected to the printer at the same time, then clicking on this button will cause the printer to report back how many bytes it has processed vs. the total number of bytes in the gcode file.  This is useful for getting a sense of how much longer the print will take, but it is not a precise measurement since different g-code commands take a different amount of time to execute on the printer.
 
-**Macro Buttons**: The three buttons below are configurable to run g-code macros, set up through the Tools menu under Firmware Configuration. The button titles are editable. (The Tools menu is not visible while the Machine Control Panel is topmost; you must go back to the main Simplify3D window to access it.)
+**Macro Buttons**: The three buttons below are configurable to run g-code macros, set up through the Tools menu under Firmware Configuration. Macros are sent straight to the printer as written, so cannot contain any comments. There is also an unspecified limit to how long the macros can be. The button titles are editable. (The Tools menu is not visible while the Machine Control Panel is topmost; you must go back to the main Simplify3D window to access it.)
 
 **Override Settings**: the two jog dials allow you to modify movement and extrusion rates while a print is in progress. This can be useful in fine tuning your settings.
 
@@ -193,7 +193,7 @@ The **print islands sequentially without optimization** option changes the order
 
 You can specify modifiers to the layer height and layer speed for the first layer only. It is possible to use multiple processes to have the same effect, but you can use these settings to easily change the most common first-layer settings easily without using a separate process.
 
-**First Layer Height** should ideally be 100%, but it can be increased to make it easier to start low-layer-height prints. Some people like to lower it for large layer height prints to improve bed adhesion, but since the extrusion rate is adjusted accordingly, I am not sure I believe reducing first layer height through this setting makes a difference.
+**First Layer Height** should ideally be 100%, but it can be increased to make it easier to start low-layer-height prints. It can be also used to lower the first layer height without correspondingly reducing the extrusion rate, which can give better first layer adhesion.
 
 ##### Raft Settings
 

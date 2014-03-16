@@ -217,7 +217,7 @@ This is where you select options for the infill density and pattern. You can als
 
 Another important option on this tab are the **Print Sparse Infill Every n layers**. Generally set to 1, you can increase this value to 2 or 3 to print fat infill every few layers, speeding up prints at low layer heights without detriment to the surface quality. Depending on your extrusion width and layer height, you will quickly reach the magic 1.2 ratio of width to thickness that is necessary for good adhesion if you go too high. If you inadvertently exceed that ratio with this option, Simplify3D will inform you with a dialog and ask if you wish to continue when you go to prepare your print.
 
-The final interesting option is **Use random infill placement**. This offsets the infill grid by a random amount on every layer. If you turn it off, the infill pattern may show through the walls if you have too few perimeter or solid layers. However, using it tends to disturb the start point for each layer, so it has a similar effect as the random start points for perimeters setting, so if you want to collect any surface irregularities into a single seam, you must turn this off as well.
+The final interesting option is **Use random infill placement**. This offsets the infill grid by a random amount on every layer. If you turn it off, the infill pattern may show through the walls if you have too few perimeter or solid layers. However, using it tends to disturb the start point for each layer, so it has a similar effect as the random start points for perimeters setting; if you want to collect any surface irregularities into a single seam, you must turn this off as well.
 
 #### Support Tab
 

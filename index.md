@@ -29,8 +29,8 @@ The preview area in the center displays your models as they will be printed. The
 * Shift-left drag zooms in and out, as does the scroll wheel.
 * Click on a model to select it.
 * Alt-left-drag left and right on a model to rotate it.
-* Cmd-left-drag on a model to move it around the bed. The camera will shift temporarily to an overhead viewpoint while you move it around.
-* Cmd-right-drag up and down on a model to scale it.
+* Cmd-left-drag (Ctrl-left-drag on a PC) on a model to move it around the bed. The camera will shift temporarily to an overhead viewpoint while you move it around.
+* Cmd-right-drag (Ctrl-left-drag on a PC) up and down on a model to scale it.
 
 Double clicking on a model will bring up an options screen to let you do all of the above transformations more precisely using numbers.
 
@@ -57,7 +57,7 @@ Finally, the Stonehenge-like icon at the bottom is for adding manual supports, a
 
 ### Processes Section
 
-In Simplify3D's terminology, a Process is set of options that will be applied to your models when preparing it for printing. You can have any number of profiles, which can be applied to all or to a subset of your models, or a range of layers, or both at once. How this is done will be covered below in the [workflow](#workflow) section. In the simplest and most common case, one process is applied to all the layers of one model.
+In Simplify3D's terminology, a Process is set of options that will be applied to your models when preparing it for printing. You can have any number of processes, which can be applied to all or to a subset of your models, or a range of layers, or both at once. How this is done will be covered below in the [workflow](#workflow) section. In the simplest and most common case, one process is applied to all the layers of one model.
 
 The Add and Delete buttons are self explanatory. _Prepare_ begins the process of "slicing" (converting your model into a "g-code" file containing low level instructions that your printer will use to execute the print). Clicking Prepare prompts you for a file name and location where the resulting g-code file will be saved. A prompt will then appear asking if you wish to preview the g-code file. You will nearly always wish to do so, so turn that prompt off under the Preferences menu.
 
@@ -95,7 +95,7 @@ This lets you manually select a tool head (for dual extruder printers), set the 
 
 **Upload to SD Card**: some firmwares allow you to upload files directly to the SD card on the printer using USB. This will occur at the baud rate you are connected to the printer at, which is, compared to normal file transfer speeds, very slow. It is much faster to transfer files by removing the SD card from the printer and connecting it to your computer.
 
-**SD Card Status**: tells you if your SD card is readable or not. There may be a malfunction, an SD card may not be inserted into the reader, or your printer may not have an SD card reader.
+**SD Card Status**: tells you if your SD card is readable or not. There may be a malfunction, an SD card may not be inserted into the reader, or your printer may not have an SD card reader. If you are running a print from the SD card and Simplify3D is connected to the printer at the same time, then clicking on this button will cause the printer to report back how many bytes it has processed vs. the total number of bytes in the gcode file.  This is useful for getting a sense of how much longer the print will take, but it is not a precise measurement since different g-code commands take a different amount of time to execute on the printer.
 
 **Macro Buttons**: The three buttons below are configurable to run g-code macros, set up through the Tools menu under Firmware Configuration. The button titles are editable. (The Tools menu is not visible while the Machine Control Panel is topmost; you must go back to the main Simplify3D window to access it.)
 

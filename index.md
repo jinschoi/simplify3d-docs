@@ -281,5 +281,34 @@ Once you have one or more profiles assigned to your models, click the Prepare bu
 
 Open up the [Machine Control Panel](#machine-control-panel) and enter the G-Code Library tab. Select the topmost item in your library, and Run Selected G-Code.
 
+## Nits and Bugs
+
+There are a few bugs in Simplify3D that I've come across. Here's a partial list with some workarounds.
+
+### Slicing bug
+![slicing bug model](screenshots/slicing-bug-model.jpg)
+
+![slicing bug gcode](screenshots/slicing-bug-gcode.jpg)
+![slicing bug correct](screenshots/slicing-bug-correct.jpg)
+
+Check the g-code preview before starting prints, especially for any vertical holes. The Simplify3D slicer can have a problem with some model features causing it to close holes with a single layer diaphragm if those features happen to exactly align to a layer height. A workaround if this happens is to change the first layer height by a small amount, to try to shift the layers away from the problem region(s). So if your first layer height is 100%, try 99% or 101%.
+
+Another manifestation of this bug can be if your top layer looks like infill or vice versa, strange patterns in your top surfaces, or other unexpected artifacts which do not appear in the model, some of which can be seen in the example images above.
+
+### Perimeters and bridges
+
+As mentioned above, perimeters that are also bridges are run at the perimeter speed rather than the bridging speed. There is no workaround.
+
+### Preview Bug With Multiple Processes
+
+![preview bug](screenshots/preview-bug.jpg)
+
+On a Mac, I have encountered a preview bug using multiple processes where the g-code preview appears to have a gap at the start of the last process, and the display of the last process looks different as well. There is nothing wrong with the g-code itself, and using an alternate previewer will not show any discrepancies.
+
+### Rapid Travel and Layer Change
+
+At the end of a layer, if you do not have retract at every layer change turned on, the rapid travel to the start of the next layer will occur before the tool head lifts to the new z-height. This can cause the tool head to leave tracks in any top surfaces. If you wish to avoid this, turn on **Force retraction between layers** in the Other tab in your process.
+
+
 [1]:http://reprap.org/wiki/Triffid_Hunter%27s_Calibration_Guide#Slicer_settings
 [2]:http://reprap.org/wiki/Triffid_Hunter%27s_Calibration_Guide#Nozzle_Temperature

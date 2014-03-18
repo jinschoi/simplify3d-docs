@@ -350,6 +350,39 @@
 <p>Once you have one or more profiles assigned to your models, click the Prepare button to generate your gcode. If you have added more than one process, a dialog will appear asking you which processes you wish to apply. Usually you will Select All. There is also a choice of <strong>Printing Mode</strong>. <em>Continuous printing</em> will print all the processes layer by layer, as if it were one large object with disconnected components. <em>Sequential printing</em> will work on one process until the <em>Max height clearance</em> you specify is reached, then move to the next object and print that to the same height, and so on.</p>
 
 <p>Open up the <a href="#machine-control-panel">Machine Control Panel</a> and enter the G-Code Library tab. Select the topmost item in your library, and Run Selected G-Code.</p>
+
+<h2>
+<a name="nits-and-bugs" class="anchor" href="#nits-and-bugs"><span class="octicon octicon-link"></span></a>Nits and Bugs</h2>
+
+<p>There are a few bugs in Simplify3D that I've come across. Here's a partial list with some workarounds.</p>
+
+<h3>
+<a name="slicing-bug" class="anchor" href="#slicing-bug"><span class="octicon octicon-link"></span></a>Slicing bug</h3>
+
+<p><img src="screenshots/slicing-bug-model.jpg" alt="slicing bug model"></p>
+
+<p><img src="screenshots/slicing-bug-gcode.jpg" alt="slicing bug gcode"><img src="screenshots/slicing-bug-correct.jpg" alt="slicing bug correct"></p>
+
+<p>Check the g-code preview before starting prints, especially for any vertical holes. The Simplify3D slicer can have a problem with some model features causing it to close holes with a single layer diaphragm if those features happen to exactly align to a layer height. A workaround if this happens is to change the first layer height by a small amount, to try to shift the layers away from the problem region(s). So if your first layer height is 100%, try 99% or 101%.</p>
+
+<p>Another manifestation of this bug can be if your top layer looks like infill or vice versa, strange patterns in your top surfaces, or other unexpected artifacts which do not appear in the model, some of which can be seen in the example images above.</p>
+
+<h3>
+<a name="perimeters-and-bridges" class="anchor" href="#perimeters-and-bridges"><span class="octicon octicon-link"></span></a>Perimeters and bridges</h3>
+
+<p>As mentioned above, perimeters that are also bridges are run at the perimeter speed rather than the bridging speed. There is no workaround.</p>
+
+<h3>
+<a name="preview-bug-with-multiple-processes" class="anchor" href="#preview-bug-with-multiple-processes"><span class="octicon octicon-link"></span></a>Preview Bug With Multiple Processes</h3>
+
+<p><img src="screenshots/preview-bug.jpg" alt="preview bug"></p>
+
+<p>On a Mac, I have encountered a preview bug using multiple processes where the g-code preview appears to have a gap at the start of the last process, and the display of the last process looks different as well. There is nothing wrong with the g-code itself, and using an alternate previewer will not show any discrepancies.</p>
+
+<h3>
+<a name="rapid-travel-and-layer-change" class="anchor" href="#rapid-travel-and-layer-change"><span class="octicon octicon-link"></span></a>Rapid Travel and Layer Change</h3>
+
+<p>At the end of a layer, if you do not have retract at every layer change turned on, the rapid travel to the start of the next layer will occur before the tool head lifts to the new z-height. This can cause the tool head to leave tracks in any top surfaces. If you wish to avoid this, turn on <strong>Force retraction between layers</strong> in the Other tab in your process.</p>
       </section>
     </div>
 

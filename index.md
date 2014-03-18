@@ -97,7 +97,7 @@ This lets you manually select a tool head (for dual extruder printers), set the 
 
 **SD Card Status**: tells you if your SD card is readable or not. There may be a malfunction, an SD card may not be inserted into the reader, or your printer may not have an SD card reader. If you are running a print from the SD card and Simplify3D is connected to the printer at the same time, then clicking on this button will cause the printer to report back how many bytes it has processed vs. the total number of bytes in the gcode file.  This is useful for getting a sense of how much longer the print will take, but it is not a precise measurement since different g-code commands take a different amount of time to execute on the printer.
 
-**Macro Buttons**: The three buttons below are configurable to run g-code macros, set up through the Tools menu under Firmware Configuration. Macros are sent straight to the printer as written, so cannot contain any comments. There is also an unspecified limit to how long the macros can be. The button titles are editable. (The Tools menu is not visible while the Machine Control Panel is topmost; you must go back to the main Simplify3D window to access it.)
+**Macro Buttons**: The three buttons below are configurable to run g-code macros, set up through the Tools menu under Firmware Configuration. Macros are sent straight to the printer as written, so cannot contain any comments. There is also an unspecified limit to how long the macros can be. The button titles are editable. (On a Mac, with the unified menu bar, the Tools menu is not visible while the Machine Control Panel is topmost; you must go back to the main Simplify3D window to access it.)
 
 **Override Settings**: the two jog dials allow you to modify movement and extrusion rates while a print is in progress. This can be useful in fine tuning your settings.
 
@@ -263,7 +263,7 @@ Scripts let you insert snippets of G code at the start and end of a print, in be
 
 The Other tab contains some of the most used print settings. Primarily, this is where you set the **default printing speed**. Speeds are specified in mm/min. You may see speeds commonly cited on the internet in mm/s; divide or multiply by 60 to convert from one to the other.
 
-**Outline Underspeed** is used to slow down the perimeters as a percentage of the default print speed. The tooltip suggests that this only applies to the outermost perimeter, but I have found it actually applies to all perimeters.
+**Outline Underspeed** is used to slow down the perimeters to a percentage of the default print speed. The tooltip suggests that this only applies to the outermost perimeter, but I have found it actually applies to all perimeters.
 
 Supports can be tall, fragile towers, so it is sometimes helpful to reduce their speed to reduce the chance of knocking them over.
 

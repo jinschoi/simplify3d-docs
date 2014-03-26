@@ -38,7 +38,7 @@ Double clicking on a model will bring up an options screen to let you do all of 
 
 When previewing a g-code file (described in the next section), the preview area displays a representation of the actual instructions that will be sent to the printer. You can virtually play back how the print will progress using the controls that appear underneath.
 
-Under _Show_ are a set of checkboxes that determine what appear in the gcode preview. Table toggles the gray gridded plane which represents your printer bed. Tool shows and hides the virtual tool head representing your extruder. Rapids displays travel moves (when your extruder is not laying down plastic) as red lines, indicating high speed moves. Retracts shows and hides small spheres where retract moves occur, when the extruder goes into reverse to suck up plastic so that it doesn't ooze out during a travel move.
+Under _Show_ are a set of checkboxes that determine what appears in the gcode preview. Table toggles the gray gridded plane which represents your printer bed. Tool shows and hides the virtual tool head representing your extruder. Rapids displays travel moves (when your extruder is not laying down plastic) as red lines, indicating high speed moves. Retracts shows and hides small spheres where retract moves occur, when the extruder goes into reverse to suck up plastic so that it doesn't ooze out during a travel move.
 
 _Preview By_ chooses whether you would like the playback to advance line by line or layer by layer. The Start and End sliders allow you to manually display a range of the gcode file to be shown. You can use them to manually inspect specific areas of your print. _Link Sliders_ moves the two sliders together, so that you are only viewing a line or layer at a time. It is generally only useful when Preview By is set to layer, as otherwise nothing other than the tool head will be shown. The two arrow buttons allow you to step forward and back one line or layer at a time.
 
@@ -71,7 +71,7 @@ The Preview button shows either a green checkmark if you are viewing your models
 
 The Connect/Disconnect button connects to your 3D printer, which is presumably attached via USB. Port and baud rate are set here. Your printer may run stand-alone using an SD card and an LCD display, in which case you do not need to bother with this panel.
 
-The Print button brings up a file dialog to locate a gcode file to print. Confusingly, you will not find yourself needing to use this button very much. It turns into a Stop button when a print is in progress. _Pause_ pauses a running print. During a paused print, depending on your firmware, you may be able to move the print head around using the [jog controls](#jog-controls), and it should reset itself to where you paused it when you resume.
+The Print button brings up a file dialog to locate a g-code file to print. Confusingly, you will not find yourself needing to use this button very much. It turns into a Stop button when a print is in progress. _Pause_ pauses a running print. During a paused print, depending on your firmware, you may be able to move the print head around using the [jog controls](#jog-controls), and it should reset itself to where you paused it when you resume.
 
 #### G-Code Library
 
@@ -83,11 +83,11 @@ This gives you a numerical readout of where the software thinks your extruder he
 
 #### Accessory Control
 
-This lets you manually select a tool head (for dual extruder printers), set the extruder and bed temperatures, and control your fan if you have one. These controls continue to work when a print is in progress and can be used to override the settings in your gcode file.
+This lets you manually select a tool head (for dual extruder printers), set the extruder and bed temperatures, and control your fan if you have one. These controls continue to work when a print is in progress and can be used to override the settings in your g-code file.
 
 #### Custom Commands
 
-**Disable/Enable Motors**: when the motors are enabled, the bed and/or extruder (depending on your printer) will not be moveable by hand, as they are being held in place by the stepper motors. You must disable motors first.
+**Disable/Enable Motors**: when the motors are enabled, the bed and/or extruder (depending on your printer) will not be moveable by hand, as they are being held in place by the stepper motors. You must disable motors to move them manually. Using any of the [jog controls](#jog-controls) will enable the motor for that axis automatically.
 
 **Print from SD Card**: this brings up a dialog to choose a file on an SD card attached to your printer, if it is capable of running SD card prints.
 
@@ -105,7 +105,7 @@ This lets you manually select a tool head (for dual extruder printers), set the 
 
 ### Load your models
 
-Use the Import button in the Models section, or drag and drop files there or in the preview area, to load your model files. They will usually be STL files, but .obj files are also accepted.
+Use the Import button in the Models section, or drag and drop files there or in the preview area, to load your model files. They will usually be STL files, but OBJ files are also accepted.
 
 ### Position your models
 
@@ -117,9 +117,9 @@ Models appear at your bed origin, usually set to be the lower left corner of the
 
 Simplify3D's manual support generation is one of its standout features. If you wish to manually define supports, this is the time to do it. Here, I've turned one of the models on its side as an example.
 
-**Support Pillar Resolution**: automated support is generated as a rectilinear grid. This option defines the size of that grid. Using a smaller grid will provide better support for models that have a lot of fine detail that need support structures, but at the cost of more filament use and longer prints.
+**Support Pillar Resolution**: automated support is generated as a rectilinear grid. This option defines the size of that grid. Using a smaller grid will provide better support for models that have a lot of fine detail that need support structures, but at the cost of more filament use and longer prints. If you have any repeating features that need support, try setting this to a distance that divides evenly into the repeating distance.
 
-**Max Overhang Angle**: defines the overhang angle at which the automated support generation will start adding in supports. 45 degrees is a good default.
+**Max Overhang Angle**: defines the overhang angle at which the automated support generation will start adding in supports. 45 degrees is the default, as most printers can handle up to 45 degree overhangs. However, if you wish to actually print 45 degree overhangs without generating automatic support for them, you should set this to 46 degrees.
 
 **Apply based on overhang angle**: this button inserts support based on the two previous parameters. It generates the same support you would get if you enable support in your profile but did not specify any manual supports.
 
@@ -179,13 +179,13 @@ One commonly overlooked button I will cover here, although it appears under all 
 
 The Layer tab contains all the layer related print options. The most important of these is the **Primary Layer Height**. This determines the thickness of each layer. This should stay under 80% of your nozzle diameter, so for a 0.35mm nozzle, keep this under 0.28mm. 0.20-0.25mm is a good default medium layer height, 0.15 gets you a smoother surface at the cost of increased print times, and 0.1 and lower can be used for very high quality surfaces with very long print times. The lower limit to this setting is limited mainly by your printer's ability to sustain very low extrusion speeds reliably. When you go to a lower layer height, it is not necessary to adjust the extrusion width to match.
 
-The next three fields, **Top and Bottom Solid Layers** and **Outline/Perimeter Shells**, controls how thick you want the solid walls of your printed object to be. Usually, 3D printed objects are not printed as solid chunks of plastic because it would unnecessarily wasteful in filament. Instead, they are mostly hollow shells, with some solid layers on the top and bottom and all sides, and the interior containing a lower density "infill" which acts as an internal support. One shell is usually too thin, so two is the lowest number of solid layers and shells you should start at. If you go to lower layer heights, you may wish to use higher values to keep the solid shells at a similar thickness.
+The next three fields, **Top and Bottom Solid Layers** and **Outline/Perimeter Shells**, controls how thick you want the solid walls of your printed object to be. Usually, 3D printed objects are not printed as solid chunks of plastic because it would unnecessarily wasteful in filament. Instead, they are mostly hollow shells, with some solid layers on the top and bottom and all sides, and the interior containing a lower density "infill" which acts as an internal support. One shell is usually too thin, so two is the lowest number of solid layers and shells you should start at, and I find that three top layers are often needed to hide defects from low density infill. If you go to lower layer heights, you may wish to use higher values to keep the solid shells at a similar thickness.
 
 **Outline Direction** determines whether perimeters are drawn from the inside out or vice versa. Outside-In can give you a marginally better surface finish, but Inside-Out is helpful when printing models with overhangs, to give the outermost perimeter something to cling to.
 
 **Use random start point for perimeter outlines** is used because the process of starting or ending a perimeter can cause bumps or pits to form on the surface where the perimeter is started. Turning this option on distributes those imperfections to random locations around the outside rather than having them all appear together as a seam running vertically up the side. I prefer to have a seam rather than random zits all over the object, so I leave this turned off.
 
-The **print islands sequentially without optimization** option changes the order in which the slicer prints "islands", or isolated areas of a particular layer. Usually, it will print all the islands of a layer in order, then do the next layer in reverse order so that time isn't wasted in traveling back to original first island to start over. This is good for reducing print times, but for small objects where each layer doesn't take a long time, it is bad for cooling. The hot extruder warms the plastic near it, and laying down new plastic on top of warm plastic leads to deformation. The islands near the start and end of the sequence get a double dose of heat because they get two consecutive layers at a time. Printing them sequentially (i.e., in the same order every time) gives every island the same amount of time to cool between layers.
+The **print islands sequentially without optimization** option changes the order in which the slicer prints "islands", or isolated areas of a particular layer. Usually, it will print all the islands of a layer in order, then do the next layer in reverse order so that time isn't wasted in traveling back to the original first island to start over. This is good for reducing print times, but for small objects where each layer doesn't take a long time, it is bad for cooling. The hot extruder warms the plastic near it, and laying down new plastic on top of warm plastic leads to deformation. The islands near the start and end of the sequence get a double dose of heat because they get two consecutive layers at a time. Printing them sequentially (i.e., in the same order every time) gives every island the same amount of time to cool between layers.
 
 **Vase mode** is useful for printing single-outline no-infill objects, usually vases. It prints as a single gradually rising spiral rather than as a number of distinct layers. Since every hobbyist 3D printer built to date has been used to print at least one twisted polygonal vase, it is helpful to have an option just for them.
 
@@ -217,7 +217,9 @@ This is where you select options for the infill density and pattern. You can als
 
 Another important option on this tab are the **Print Sparse Infill Every n layers**. Generally set to 1, you can increase this value to 2 or 3 to print fat infill every few layers, speeding up prints at low layer heights without detriment to the surface quality. Depending on your extrusion width and layer height, you will quickly reach the magic 1.2 ratio of width to thickness that is necessary for good adhesion if you go too high. If you inadvertently exceed that ratio with this option, Simplify3D will inform you with a dialog and ask if you wish to continue when you go to prepare your print.
 
-The final interesting option is **Use random infill placement**. This offsets the infill grid by a random amount on every layer. If you turn it off, the infill pattern may show through the walls if you have too few perimeter or solid layers. However, using it tends to disturb the start point for each layer, so it has a similar effect as the random start points for perimeters setting; if you want to collect any surface irregularities into a single seam, you must turn this off as well.
+**Use random infill placement** offsets the infill grid by a random amount on every layer. If you turn it off, the infill pattern may show through the walls if you have too few perimeter or solid layers. However, using it tends to disturb the start point for each layer, so it has a similar effect as the random start points for perimeters setting; if you want to collect any surface irregularities into a single seam, you must turn this off as well.
+
+Finally, the **Infill Angles** setting determines the angle _relative to the bed_ that infill is laid down at. The default is 45 and -45 degrees, so alternating levels will have infill in an alternating diagonal crosshatch pattern. This works fine for prints oriented North-South or East-West. A print that is positioned with its major axes not aligned with the bed (for example, if you have a long object that needs to be positioned diagonally) will have infill parallel and at right angles to the main axes of the model, which is not the best for strength. Changing the infill to 0 and 90 degrees will provide a stronger infill pattern in that case. If you have a model with circular symmetry, you might try using those angles in addition to the defaults.
 
 #### Support Tab
 
